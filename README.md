@@ -1,37 +1,76 @@
-# Portfolio Website - Adam UI/UX Designer
+﻿# 🚀 Portfolio Aquilas DJEDJE
 
-Ce projet est une réplication exacte du portfolio d'Adam, un UI/UX Designer, basé sur la capture d'écran fournie.
+![Portfolio Preview](IMAGES/IMG0.png)
 
-## Fichiers
+**Développeur FullStack & UI/UX Designer**  
+Portfolio professionnel moderne, responsive et performant.
 
-- `index.html` - Structure HTML de la page
-- `style.css` - Styles CSS pour le design
-- `script.js` - Interactivité JavaScript
+## 🌟 Fonctionnalités
 
-## Fonctionnalités
+- 🎨 **Design moderne** avec animations fluides
+- 📱 **100% Responsive** (Mobile, Tablette, Desktop)
+- ⚡ **Performance optimisée**
+- ♿ **Accessibilité** (WCAG compatible)
+- 🌐 **SPA (Single Page Application)**
+- 🎯 **Navigation clavier & tactile**
+- 📄 **CV téléchargeable**
+- 🎮 **Compétences 3D & Game Dev**
 
-1. **Design responsive** - S'adapte à toutes les tailles d'écran
-2. **Barres de progression animées** - Animation au défilement
-3. **Interactivité des boutons** - Effets visuels au clic
-4. **Modal pour les projets** - Affichage des détails des projets
-5. **Effets de survol** - Animations subtiles sur les éléments
+## 🛠️ Technologies utilisées
 
-## Comment utiliser
+- **HTML5** - Structure sémantique
+- **CSS3** - Flexbox, Grid, Animations
+- **JavaScript (ES6+)** - Interactions avancées
+- **Font Awesome** - Icônes
+- **Google Fonts** - Typographie (Inter)
 
-1. Téléchargez les 3 fichiers dans le même dossier
-2. Ouvrez `index.html` dans votre navigateur
-3. Le site est entièrement fonctionnel
+## 📁 Structure du projet
 
-## Technologies utilisées
+\\\
+Mon Portfolio/
+├── index.html          # Page principale
+├── CSS/
+│   └── style.css      # Styles responsive
+├── JS/
+│   └── script.js      # Logique SPA
+├── IMAGES/            # Assets visuels
+├── CV/                # Fichier CV PDF
+└── README.md          # Documentation
+\\\
 
-- HTML5
-- CSS3 (Flexbox, animations, variables CSS)
-- JavaScript vanilla (ES6+)
-- Font Awesome pour les icônes
-- Google Fonts (Poppins et Inter)
+## 🚀 Déploiement
 
-## Compatibilité
+### 🌐 **En ligne sur Render :**
+[https://portfolio-aquilas-djedje.onrender.com](https://portfolio-aquilas-djedje.onrender.com)
 
-- Compatible avec tous les navigateurs modernes
-- Responsive design pour mobile, tablette et desktop
-- Accessibilité de base intégrée
+### 📦 **Code source sur GitHub :**
+[https://github.com/Master-Bronz12/portfolio-aquilas-djedje](https://github.com/Master-Bronz12/portfolio-aquilas-djedje)
+
+## 📱 Responsive Design
+
+- **Desktop** : > 1200px
+- **Tablette** : 768px - 1199px
+- **Mobile** : < 767px
+- **Touch** : Support des gestes de swipe
+
+## 🎨 Compétences techniques
+
+### Développement Web
+- React, Vue.js, JavaScript
+- HTML5, CSS3, Tailwind
+- API REST, Node.js
+
+### Design & 3D
+- UI/UX Design avec Figma
+- Modélisation 3D avec Blender
+- Game Development avec Unity & C#
+
+## 📞 Contact
+
+- **Email** : aquilasdjedje22@gmail.com
+- **GitHub** : [@Master-Bronz12](https://github.com/Master-Bronz12)
+- **Portfolio** : [https://portfolio-aquilas-djedje.onrender.com](https://portfolio-aquilas-djedje.onrender.com)
+
+## 📄 Licence
+
+© 2024 Aquilas DJEDJE. Tous droits réservés.

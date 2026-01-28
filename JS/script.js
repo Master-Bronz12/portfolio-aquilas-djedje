@@ -3,19 +3,24 @@ const SIDEBAR_ICONS = document.querySelectorAll('.icon');
 const PAGES = document.querySelectorAll('.page');
 const BUTTONS = document.querySelectorAll('button, .secondary');
 const PORTFOLIO_CARDS = document.querySelectorAll('.portfolio-card');
-const SKILL_BARS = document.querySelectorAll('.bar div');
-const DOWNLOAD_CV_BTN = document.querySelector('.secondary[download]');
-const VIEW_PROJECTS_BTN = document.querySelector('.primary[data-go]');
+const SKILL_BARS = document.querySelectorAll('.bar-fill');
+const DOWNLOAD_CV_BTN = document.querySelector('#download-cv-btn');
+const VIEW_PROJECTS_BTN = document.querySelector('#view-projects-btn');
+const CURRENT_YEAR = document.querySelector('#current-year');
+const MAIN_CONTENT = document.querySelector('#main-content');
 
 let currentPageIndex = 0;
 let isAnimating = false;
 let isTouchDevice = 'ontouchstart' in window;
+let resizeTimeout;
 
 // ================= ANIMATIONS DES BARRES DE COMPÉTENCES =================
 function animateSkillBars() {
     SKILL_BARS.forEach(bar => {
         // Sauvegarder la largeur originale
-        const originalWidth = bar.style.width;
+        const originalWidth = bar.style.width || getComputedStyle(bar).width;
+        const percentage = bar.parentElement.getAttribute('aria-valuenow') || 
+                          originalWidth.replace('%', '');
         
         // Réinitialiser à 0
         bar.style.width = '0';
@@ -23,7 +28,7 @@ function animateSkillBars() {
         
         // Animer vers la largeur originale
         setTimeout(() => {
-            bar.style.width = originalWidth;
+            bar.style.width = `${percentage}%`;
             
             // Ajouter une animation de pulsation légère
             bar.style.boxShadow = `
@@ -58,8 +63,13 @@ function navigateToPage(targetIndex) {
     const direction = targetIndex > currentPageIndex ? 'right' : 'left';
 
     // 1. Mise à jour des icônes
-    SIDEBAR_ICONS.forEach(icon => icon.classList.remove('active'));
+    SIDEBAR_ICONS.forEach(icon => {
+        icon.classList.remove('active');
+        icon.removeAttribute('aria-current');
+    });
+    
     SIDEBAR_ICONS[targetIndex].classList.add('active');
+    SIDEBAR_ICONS[targetIndex].setAttribute('aria-current', 'page');
     
     // Animation de l'icône cliquée
     const clickedIcon = SIDEBAR_ICONS[targetIndex];
@@ -70,7 +80,10 @@ function navigateToPage(targetIndex) {
 
     // 2. Préparation des animations
     currentPage.classList.remove('active');
+    currentPage.setAttribute('aria-hidden', 'true');
+    
     targetPage.style.display = 'block';
+    targetPage.setAttribute('aria-hidden', 'false');
     
     // Nettoyer les anciennes classes d'animation
     PAGES.forEach(page => {
@@ -81,7 +94,10 @@ function navigateToPage(targetIndex) {
     currentPage.classList.add(`exit-${direction}`);
     targetPage.classList.add(`enter-${direction}`, 'active');
 
-    // 4. Nettoyage après animation
+    // 4. Mise à jour de l'accessibilité
+    targetPage.focus();
+
+    // 5. Nettoyage après animation
     setTimeout(() => {
         currentPage.classList.remove(`exit-${direction}`);
         currentPage.style.display = 'none';
@@ -96,6 +112,9 @@ function navigateToPage(targetIndex) {
         
         // Mettre à jour l'URL (pour le partage)
         updateURLHash(targetIndex);
+        
+        // Mettre à jour le titre de la page
+        updatePageTitle(targetIndex);
     }, 550);
 }
 
@@ -166,14 +185,16 @@ function setupButtons() {
             e.preventDefault();
             
             const originalHTML = this.innerHTML;
+            const originalText = this.querySelector('span').textContent;
             const originalBg = this.style.background;
             const originalBorder = this.style.borderColor;
             
             // Animation de téléchargement
-            this.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Téléchargement...';
+            this.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i><span>Téléchargement...</span>';
             this.style.pointerEvents = 'none';
             this.style.background = 'linear-gradient(135deg, #00bfff, #007bff)';
             this.style.borderColor = '#00bfff';
+            this.setAttribute('aria-label', 'Téléchargement en cours...');
             
             setTimeout(() => {
                 // Simuler le téléchargement
@@ -185,16 +206,18 @@ function setupButtons() {
                 document.body.removeChild(link);
                 
                 // Confirmation
-                this.innerHTML = '<i class="fa-solid fa-check"></i> Téléchargé !';
+                this.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i><span>Téléchargé !</span>';
                 this.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
                 this.style.borderColor = '#10b981';
+                this.setAttribute('aria-label', 'CV téléchargé avec succès');
                 
                 // Réinitialiser après 2 secondes
                 setTimeout(() => {
-                    this.innerHTML = originalHTML;
+                    this.innerHTML = `<i class="fa-solid fa-download" aria-hidden="true"></i><span>${originalText}</span>`;
                     this.style.background = originalBg;
                     this.style.borderColor = originalBorder;
                     this.style.pointerEvents = 'auto';
+                    this.setAttribute('aria-label', 'Télécharger mon CV');
                 }, 2000);
                 
             }, 1500);
@@ -203,15 +226,29 @@ function setupButtons() {
     
     // Effets de survol pour tous les boutons
     BUTTONS.forEach(btn => {
+        // Desktop hover effects
         btn.addEventListener('mouseenter', function() {
-            if (!this.classList.contains('disabled')) {
+            if (!this.classList.contains('disabled') && window.innerWidth > 768) {
                 this.style.transform = 'translateY(-3px)';
             }
         });
         
         btn.addEventListener('mouseleave', function() {
-            if (!this.classList.contains('disabled')) {
+            if (!this.classList.contains('disabled') && window.innerWidth > 768) {
                 this.style.transform = 'translateY(0)';
+            }
+        });
+        
+        // Touch/mobile effects
+        btn.addEventListener('touchstart', function() {
+            if (!this.classList.contains('disabled')) {
+                this.style.transform = 'scale(0.98)';
+            }
+        });
+        
+        btn.addEventListener('touchend', function() {
+            if (!this.classList.contains('disabled')) {
+                this.style.transform = 'scale(1)';
             }
         });
         
@@ -223,7 +260,7 @@ function setupButtons() {
         
         btn.addEventListener('mouseup', function() {
             if (!this.classList.contains('disabled')) {
-                this.style.transform = 'scale(1) translateY(-3px)';
+                this.style.transform = 'scale(1)';
             }
         });
     });
@@ -232,7 +269,7 @@ function setupButtons() {
 // ================= GESTION DU HASH URL =================
 function updateURLHash(pageIndex) {
     const pageId = PAGES[pageIndex].id;
-    window.history.pushState({}, '', `#${pageId}`);
+    window.history.pushState({ page: pageId }, '', `#${pageId}`);
 }
 
 function parseURLHash() {
@@ -242,6 +279,17 @@ function parseURLHash() {
         if (targetIndex !== -1 && targetIndex !== currentPageIndex) {
             navigateToPage(targetIndex);
         }
+    }
+}
+
+// ================= MISE À JOUR DU TITRE DE LA PAGE =================
+function updatePageTitle(pageIndex) {
+    const page = PAGES[pageIndex];
+    const pageTitle = page.querySelector('.section-title')?.textContent || 
+                     page.querySelector('h2, h3')?.textContent || '';
+    
+    if (pageTitle) {
+        document.title = `${pageTitle} | Aquilas DJEDJE`;
     }
 }
 
@@ -298,10 +346,12 @@ function setupTouchNavigation() {
     
     let touchStartX = 0;
     let touchStartY = 0;
+    let touchStartTime = 0;
     
     document.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
     }, { passive: true });
     
     document.addEventListener('touchend', (e) => {
@@ -309,12 +359,14 @@ function setupTouchNavigation() {
         
         const touchEndX = e.changedTouches[0].clientX;
         const touchEndY = e.changedTouches[0].clientY;
+        const touchEndTime = Date.now();
+        const touchDuration = touchEndTime - touchStartTime;
         
         const diffX = touchStartX - touchEndX;
         const diffY = touchStartY - touchEndY;
         
-        // Vérifier si c'est un swipe horizontal (plus horizontal que vertical)
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        // Vérifier si c'est un swipe rapide et horizontal
+        if (touchDuration < 500 && Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
             let targetIndex = currentPageIndex;
             
             if (diffX > 0) {
@@ -332,38 +384,59 @@ function setupTouchNavigation() {
 
 // ================= EFFETS VISUELS & INTERACTIONS =================
 function setupVisualEffects() {
-    // Effets de survol sur les cartes portfolio
+    // Effets de survol sur les cartes portfolio (desktop seulement)
     PORTFOLIO_CARDS.forEach(card => {
         card.addEventListener('mouseenter', () => {
-            card.style.zIndex = '10';
-            const img = card.querySelector('img');
-            if (img) {
-                img.style.transform = 'scale(1.05)';
+            if (window.innerWidth > 768) {
+                card.style.zIndex = '10';
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1.05)';
+                }
             }
         });
         
         card.addEventListener('mouseleave', () => {
-            card.style.zIndex = '1';
-            const img = card.querySelector('img');
-            if (img) {
-                img.style.transform = 'scale(1)';
+            if (window.innerWidth > 768) {
+                card.style.zIndex = '1';
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.transform = 'scale(1)';
+                }
+            }
+        });
+        
+        // Touch feedback pour mobile
+        card.addEventListener('touchstart', () => {
+            if (window.innerWidth <= 768) {
+                card.style.transform = 'scale(0.98)';
+            }
+        });
+        
+        card.addEventListener('touchend', () => {
+            if (window.innerWidth <= 768) {
+                card.style.transform = 'scale(1)';
             }
         });
     });
     
-    // Effet sur l'avatar
+    // Effet sur l'avatar (desktop seulement)
     const avatar = document.querySelector('.avatar');
     if (avatar) {
         avatar.addEventListener('mouseenter', () => {
-            avatar.style.transform = 'scale(1.05) rotate(5deg)';
-            avatar.style.boxShadow = 
-                '0 30px 60px rgba(0, 191, 255, 0.4), 0 0 80px rgba(0, 191, 255, 0.3)';
+            if (window.innerWidth > 768) {
+                avatar.style.transform = 'scale(1.05) rotate(5deg)';
+                avatar.style.boxShadow = 
+                    '0 30px 60px rgba(0, 191, 255, 0.4), 0 0 80px rgba(0, 191, 255, 0.3)';
+            }
         });
         
         avatar.addEventListener('mouseleave', () => {
-            avatar.style.transform = 'scale(1) rotate(0)';
-            avatar.style.boxShadow = 
-                '0 20px 40px rgba(0, 191, 255, 0.3), 0 0 60px rgba(0, 191, 255, 0.2)';
+            if (window.innerWidth > 768) {
+                avatar.style.transform = 'scale(1) rotate(0)';
+                avatar.style.boxShadow = 
+                    '0 20px 40px rgba(0, 191, 255, 0.3), 0 0 60px rgba(0, 191, 255, 0.2)';
+            }
         });
     }
     
@@ -413,21 +486,86 @@ function setupIntersectionObserver() {
     });
 }
 
+// ================= GESTION DU REDIMENSIONNEMENT =================
+function setupResizeHandler() {
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            // Recalculer si on est sur mobile/tablette
+            isTouchDevice = 'ontouchstart' in window || 
+                          (navigator.maxTouchPoints > 0) || 
+                          (navigator.msMaxTouchPoints > 0);
+            
+            // Réinitialiser les transformations sur mobile
+            if (window.innerWidth <= 768) {
+                BUTTONS.forEach(btn => {
+                    btn.style.transform = '';
+                });
+                
+                PORTFOLIO_CARDS.forEach(card => {
+                    card.style.transform = '';
+                    const img = card.querySelector('img');
+                    if (img) img.style.transform = '';
+                });
+                
+                const avatar = document.querySelector('.avatar');
+                if (avatar) {
+                    avatar.style.transform = '';
+                }
+            }
+        }, 250);
+    });
+}
+
+// ================= MISE À JOUR DE L'ANNÉE DU FOOTER =================
+function updateCurrentYear() {
+    if (CURRENT_YEAR) {
+        CURRENT_YEAR.textContent = new Date().getFullYear();
+    }
+}
+
+// ================= GESTION DES PAGES EN OFFLINE =================
+function setupOfflineSupport() {
+    window.addEventListener('online', () => {
+        console.log('✅ Connexion rétablie');
+        document.body.classList.remove('offline');
+    });
+    
+    window.addEventListener('offline', () => {
+        console.log('⚠️ Mode hors ligne');
+        document.body.classList.add('offline');
+    });
+}
+
 // ================= INITIALISATION =================
 function init() {
     console.log('🚀 Initialisation du portfolio de Aquilas DJEDJE');
     
+    // Mettre à jour l'année
+    updateCurrentYear();
+    
     // Initialiser la navigation
     parseURLHash();
     
-    // Configurer les écouteurs d'événements
+    // Configurer les écouteurs d'événements pour les icônes
     SIDEBAR_ICONS.forEach((icon, index) => {
-        icon.addEventListener('click', () => navigateToPage(index));
+        icon.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage(index);
+        });
         
         // Accessibilité
         icon.setAttribute('role', 'button');
         icon.setAttribute('tabindex', '0');
-        icon.setAttribute('aria-label', `Aller à la section ${PAGES[index].id}`);
+        icon.setAttribute('aria-label', `Aller à ${icon.querySelector('.icon-label')?.textContent || 'cette section'}`);
+        
+        // Support clavier
+        icon.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                navigateToPage(index);
+            }
+        });
     });
     
     // Configurer les autres fonctionnalités
@@ -436,6 +574,8 @@ function init() {
     setupTouchNavigation();
     setupVisualEffects();
     setupIntersectionObserver();
+    setupResizeHandler();
+    setupOfflineSupport();
     
     // Animer les éléments initiaux
     setTimeout(() => {
@@ -447,7 +587,16 @@ function init() {
     window.addEventListener('hashchange', parseURLHash);
     
     // Gérer le bouton retour/avant
-    window.addEventListener('popstate', parseURLHash);
+    window.addEventListener('popstate', (e) => {
+        if (e.state && e.state.page) {
+            const targetIndex = Array.from(PAGES).findIndex(page => page.id === e.state.page);
+            if (targetIndex !== -1) {
+                navigateToPage(targetIndex);
+            }
+        } else {
+            parseURLHash();
+        }
+    });
     
     console.log('✅ Portfolio initialisé avec succès !');
 }
@@ -460,5 +609,17 @@ if (document.readyState === 'loading') {
     init();
 }
 
-// ================= EXPORT POSSIBLE POUR USAGE FUTUR =================
-// export { navigateToPage, animateSkillBars, animatePortfolioCards };
+// ================= GESTION DES ERREURS =================
+window.addEventListener('error', (e) => {
+    console.error('❌ Erreur JavaScript:', e.error);
+});
+
+// ================= API EXPORTS (pour extensions futures) =================
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        navigateToPage,
+        animateSkillBars,
+        animatePortfolioCards,
+        init
+    };
+}
