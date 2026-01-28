@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aquilas DJEDJE | Développeur FullStack & UI/UX Designer</title>
+
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="icon active" data-page="home"><i class="fa-solid fa-house"></i></div>
+    <div class="icon" data-page="skills"><i class="fa-solid fa-layer-group"></i></div>
+    <div class="icon" data-page="portfolio"><i class="fa-solid fa-briefcase"></i></div>
+    <div class="icon" data-page="education"><i class="fa-solid fa-graduation-cap"></i></div>
+    <div class="icon" data-page="languages"><i class="fa-solid fa-globe"></i></div>
+    <div class="icon" data-page="contact"><i class="fa-solid fa-envelope"></i></div>
+  </aside>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main class="container">
+
+    <!-- ================= ACCUEIL ================= -->
+    <section id="home" class="page active hero card">
+      <img src="./IMAGES/IMG0.png" alt="Aquilas DJEDJE" class="avatar">
+
+      <h1>Salut, je suis <span>Aquilas DJEDJE</span></h1>
+      <h2>Développeur FullStack & UI/UX Designer</h2>
+
+      <p>
+        Je conçois des expériences web modernes, performantes et intuitives,
+        centrées sur l’utilisateur et la qualité du code.
+      </p>
+
+      <div class="buttons">
+        <button class="primary" data-go="portfolio">
+          <i class="fa-solid fa-eye"></i>
+          Voir mes projets
+        </button>
+
+        <a href="./ASSETS/CV/Aquilas_DJEDJE_CV.pdf" download class="secondary">
+          <i class="fa-solid fa-download"></i>
+          Télécharger mon CV
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= COMPÉTENCES ================= -->
+    <section id="skills" class="page card skills-layout">
+
+      <div class="skills-image">
+        <img src="./IMAGES/ai-min.png" alt="Illustration compétences">
+      </div>
+
+      <div class="skills-content">
+        <h3>MES <span id="cmpt">COMPÉTENCES</span></h3>
+
+        <p>
+          Passionné par le développement moderne, je conçois
+          des applications performantes avec une forte exigence UI/UX.
+        </p>
+
+        <div class="skill">
+          <span><i class="fa-brands fa-react"></i> React <strong>90%</strong></span>
+          <div class="bar"><div style="width:90%"></div></div>
+        </div>
+
+        <div class="skill">
+          <span><i class="fa-brands fa-vuejs"></i> Vue.js <strong>95%</strong></span>
+          <div class="bar"><div style="width:95%"></div></div>
+        </div>
+
+        <div class="skill">
+          <span><i class="fa-brands fa-python"></i> Python <strong>80%</strong></span>
+          <div class="bar"><div style="width:80%"></div></div>
+        </div>
+
+        <div class="skill">
+          <span><i class="fa-solid fa-wind"></i> Tailwind CSS <strong>85%</strong></span>
+          <div class="bar"><div style="width:85%"></div></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= PORTFOLIO ================= -->
+    <section id="portfolio" class="page card portfolio">
+
+      <h3><i class="fa-solid fa-briefcase"></i> Mon Portfolio</h3>
+
+      <div class="portfolio-grid">
+
+        <a href="portfolio.html" class="portfolio-card">
+          <img src="./IMAGES/ec.jpg" alt="Projet E-commerce">
+          <div class="overlay">
+            <h4>E-commerce moderne</h4>
+            <span>Voir le projet</span>
+          </div>
+        </a>
+
+        <a href="portfolio.html" class="portfolio-card">
+          <img src="./IMAGES/ap g.jpg" alt="Task Manager">
+          <div class="overlay">
+            <h4>Gestionnaire de tâches</h4>
+            <span>Voir le projet</span>
+          </div>
+        </a>
+
+        <a href="portfolio.html" class="portfolio-card">
+          <img src="./IMAGES/aap.jpg" alt="Application météo">
+          <div class="overlay">
+            <h4>Application météo</h4>
+            <span>Voir le projet</span>
+          </div>
+        </a>
+
+        <a href="portfolio.html" class="portfolio-card">
+          <img src="./IMAGES/app3.jpg" alt="UI Kit">
+          <div class="overlay">
+            <h4>UI Kit Design</h4>
+            <span>Voir le projet</span>
+          </div>
+        </a>
+
+        <a href="portfolio.html" class="portfolio-card">
+          <img src="./IMAGES/3D.jpg" alt="UI Kit">
+          <div class="overlay">
+            <h4>Modélisation 3D</h4>
+            <span>Voir le projet</span>
+          </div>
+        </a>
+
+        <a href="portfolio.html" class="portfolio-card">
+          <img src="./IMAGES/api.jpg" alt="UI Kit">
+          <div class="overlay">
+            <h4>Création API</h4>
+            <span>Voir le projet</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ================= FORMATION ================= -->
+    <section id="education" class="page card">
+      <h3><i class="fa-solid fa-user-graduate"></i> Formation & Certifications</h3>
+      <ul>
+        <li><i class="fa-solid fa-graduation-cap"></i> Licence en informatique</li>
+        <li><i class="fa-solid fa-certificate"></i> Certification AWS</li>
+        <li><i class="fa-brands fa-google"></i> Google UX Design</li>
+      </ul>
+    </section>
+
+    <!-- ================= LANGUES ================= -->
+    <section id="languages" class="page card">
+      <h3><i class="fa-solid fa-language"></i> Langues</h3>
+
+      <div class="skill">
+        <span>Anglais <strong>90%</strong></span>
+        <div class="bar"><div style="width:90%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>Français <strong>70%</strong></span>
+        <div class="bar"><div style="width:70%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>Espagnol <strong>65%</strong></span>
+        <div class="bar"><div style="width:65%"></div></div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="page card">
+      <h3><i class="fa-solid fa-envelope"></i> Contact</h3>
+      <p><i class="fa-solid fa-at"></i> aquilasdjedje22@gmail.com</p>
+    </section>
+
+  </main>
+
+  <script src="./JS/script.js"></script>
+</body>
+</html>
