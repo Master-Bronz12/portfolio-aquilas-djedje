@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fr" class="portfolio-page">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Détails du projet E-commerce Moderne - Plateforme complète développée par Aquilas DJEDJE, Développeur FullStack & UI/UX Designer">
+  <meta name="keywords" content="e-commerce, React, Node.js, MongoDB, portfolio projet, développement web, Aquilas DJEDJE">
+  <meta name="author" content="Aquilas DJEDJE">
+  
+  <title>Plateforme E-commerce Moderne | Portfolio Aquilas DJEDJE</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="./IMAGES/favicon.ico" type="image/x-icon">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" href="./CSS/style-portfolio.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Plateforme E-commerce Moderne | Portfolio Aquilas DJEDJE">
+  <meta property="og:description" content="Découvrez en détail la plateforme e-commerce moderne développée avec React et Node.js">
+  <meta property="og:image" content="./IMAGES/ec.jpg">
+  <meta property="og:url" content="https://portfolio-aquilas-djedje.onrender.com/portfolio.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Plateforme E-commerce Moderne">
+  <meta name="twitter:description" content="Projet détaillé - Développement Full Stack e-commerce">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#020817">
+</head>
+<body>
+
+  <!-- ===== SIDEBAR DE NAVIGATION ===== -->
+  <aside class="sidebar portfolio-sidebar">
+    <a href="index.html" class="icon back-home" title="Retour au portfolio principal" aria-label="Retour au portfolio principal">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      <span class="sidebar-tooltip">Accueil</span>
+    </a>
+    
+    <a href="#overview" class="icon" title="Aperçu du projet" aria-label="Aller à la section Aperçu">
+      <i class="fa-solid fa-eye" aria-hidden="true"></i>
+      <span class="sidebar-tooltip">Aperçu</span>
+    </a>
+    
+    <a href="#features" class="icon" title="Fonctionnalités" aria-label="Aller à la section Fonctionnalités">
+      <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+      <span class="sidebar-tooltip">Fonctionnalités</span>
+    </a>
+    
+    <a href="#tech" class="icon" title="Technologies utilisées" aria-label="Aller à la section Technologies">
+      <i class="fa-solid fa-code" aria-hidden="true"></i>
+      <span class="sidebar-tooltip">Technologies</span>
+    </a>
+    
+    <a href="#gallery" class="icon" title="Galerie d'images" aria-label="Aller à la section Galerie">
+      <i class="fa-solid fa-images" aria-hidden="true"></i>
+      <span class="sidebar-tooltip">Galerie</span>
+    </a>
+    
+    <a href="#challenges" class="icon" title="Challenges techniques" aria-label="Aller à la section Challenges">
+      <i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i>
+      <span class="sidebar-tooltip">Challenges</span>
+    </a>
+  </aside>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main class="container portfolio-detail-page" id="main-content" role="main">
+
+    <!-- ===== BOUTON RETOUR EN HAUT ===== -->
+    <div class="navigation-wrapper">
+      <a href="index.html" class="back-button" aria-label="Retour au portfolio principal">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Retour au portfolio</span>
+      </a>
+      
+      <button class="scroll-top-btn" aria-label="Remonter en haut de la page">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- ===== EN-TÊTE DU PROJET ===== -->
+    <header class="project-header" role="banner">
+      <div class="project-breadcrumb">
+        <a href="index.html">Portfolio</a>
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        <a href="index.html#portfolio">Projets</a>
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        <span class="current-page">E-commerce Moderne</span>
+      </div>
+      
+      <span class="project-category" aria-label="Catégorie du projet">E-commerce Full Stack</span>
+      
+      <h1 class="project-title" id="project-title">
+        Plateforme <span class="highlight">E-commerce</span> Moderne
+      </h1>
+      
+      <p class="project-subtitle">
+        Solution complète de commerce en ligne avec React et Node.js - Performance, sécurité et scalabilité
+      </p>
+      
+      <div class="project-meta">
+        <div class="meta-item">
+          <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+          <div>
+            <span class="meta-label">Durée</span>
+            <span class="meta-value">3 mois</span>
+          </div>
+        </div>
+        
+        <div class="meta-item">
+          <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+          <div>
+            <span class="meta-label">Architecture</span>
+            <span class="meta-value">Microservices MERN</span>
+          </div>
+        </div>
+        
+        <div class="meta-item">
+          <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+          <div>
+            <span class="meta-label">Statut</span>
+            <span class="meta-value success">Live & Maintenu</span>
+          </div>
+        </div>
+        
+        <div class="meta-item">
+          <i class="fa-solid fa-users" aria-hidden="true"></i>
+          <div>
+            <span class="meta-label">Rôle</span>
+            <span class="meta-value">Lead Développeur Full Stack</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== IMAGE HERO ===== -->
+    <section class="project-hero" aria-labelledby="hero-title">
+      <div class="hero-image-container">
+        <img src="./IMAGES/ec.jpg" 
+             alt="Interface principale de la plateforme e-commerce montrant la page d'accueil avec produits en vedette" 
+             class="hero-image"
+             loading="eager"
+             width="1200"
+             height="675">
+        <div class="hero-overlay">
+          <h2 id="hero-title" class="sr-only">Interface principale du projet</h2>
+          <div class="hero-badges">
+            <span class="hero-badge">React 18</span>
+            <span class="hero-badge">Node.js</span>
+            <span class="hero-badge">MongoDB</span>
+            <span class="hero-badge">Responsive</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTENU PRINCIPAL ===== -->
+    <div class="project-content-wrapper">
+      
+      <!-- Colonne principale (description) -->
+      <div class="project-description">
+        
+        <!-- Section Aperçu -->
+        <section id="overview" class="content-section" aria-labelledby="overview-title">
+          <h2 id="overview-title" class="section-title">
+            <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+            Aperçu du projet
+          </h2>
+          
+          <div class="section-content">
+            <p>
+              Développement d'une plateforme e-commerce <strong>moderne et performante</strong> offrant une 
+              expérience utilisateur exceptionnelle. Cette solution complète intègre toutes les fonctionnalités 
+              nécessaires pour une boutique en ligne réussie, avec une attention particulière portée à 
+              <strong>l'UX, la performance et la sécurité</strong>.
+            </p>
+            
+            <p>
+              Le projet a été conçu avec une <strong>architecture microservices</strong> permettant une scalabilité 
+              optimale et une maintenance simplifiée. L'interface utilisateur intuitive et responsive garantit 
+              une expérience fluide sur tous les appareils, du mobile au desktop.
+            </p>
+            
+            <div class="highlight-box">
+              <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+              <div>
+                <strong>Objectif principal :</strong>
+                <p>Créer une plateforme e-commerce qui combine performance technique et excellence UX, 
+                capable de gérer des milliers de produits et utilisateurs simultanément.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Fonctionnalités -->
+        <section id="features" class="content-section" aria-labelledby="features-title">
+          <h2 id="features-title" class="section-title">
+            <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+            Fonctionnalités principales
+          </h2>
+          
+          <div class="section-content">
+            <div class="features-grid">
+              <div class="feature-item" data-aos="fade-up">
+                <div class="feature-icon">
+                  <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                </div>
+                <h3>Panier intelligent</h3>
+                <p>Synchronisation en temps réel, sauvegarde automatique, suggestions personnalisées</p>
+              </div>
+              
+              <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                  <i class="fa-solid fa-shield" aria-hidden="true"></i>
+                </div>
+                <h3>Paiement sécurisé</h3>
+                <p>Stripe intégré, cryptage SSL, validation 3D Secure, multiples méthodes de paiement</p>
+              </div>
+              
+              <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                  <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+                </div>
+                <h3>Design Responsive</h3>
+                <p>Adaptation parfaite mobile, tablette, desktop - PWA compatible</p>
+              </div>
+              
+              <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                  <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                </div>
+                <h3>Dashboard admin</h3>
+                <p>Analytics temps réel, gestion produits, suivi commandes, rapports détaillés</p>
+              </div>
+              
+              <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-icon">
+                  <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                </div>
+                <h3>Recherche avancée</h3>
+                <p>Moteur de recherche intelligent, filtres multiples, recherche par image</p>
+              </div>
+              
+              <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-icon">
+                  <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+                </div>
+                <h3>Système utilisateur</h3>
+                <p>Profils personnalisés, historique d'achats, listes de souhaits, avis produits</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Galerie -->
+        <section id="gallery" class="content-section" aria-labelledby="gallery-title">
+          <h2 id="gallery-title" class="section-title">
+            <i class="fa-solid fa-images" aria-hidden="true"></i>
+            Galerie du projet
+          </h2>
+          
+          <div class="section-content">
+            <div class="gallery-grid">
+              <figure class="gallery-item" data-aos="zoom-in">
+                <img src="./IMAGES/app.jpg" 
+                     alt="Interface de gestion des produits avec tableau de bord administrateur" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+                <figcaption>Dashboard administrateur</figcaption>
+              </figure>
+              
+              <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                <img src="./IMAGES/aap.jpg" 
+                     alt="Interface utilisateur du panier d'achat avec résumé de commande" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+                <figcaption>Panier utilisateur</figcaption>
+              </figure>
+              
+              <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                <img src="./IMAGES/ap g.jpg" 
+                     alt="Page de paiement sécurisée avec formulaire Stripe" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+                <figcaption>Processus de paiement</figcaption>
+              </figure>
+              
+              <figure class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                <img src="./IMAGES/app3.jpg" 
+                     alt="Interface mobile responsive de la boutique en ligne" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+                <figcaption>Version mobile</figcaption>
+              </figure>
+            </div>
+            
+            <div class="gallery-controls">
+              <button class="gallery-prev" aria-label="Image précédente">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <div class="gallery-counter">
+                <span class="current-slide">1</span> / <span class="total-slides">4</span>
+              </div>
+              <button class="gallery-next" aria-label="Image suivante">
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Challenges -->
+        <section id="challenges" class="content-section" aria-labelledby="challenges-title">
+          <h2 id="challenges-title" class="section-title">
+            <i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i>
+            Challenges techniques résolus
+          </h2>
+          
+          <div class="section-content">
+            <div class="challenges-list">
+              <div class="challenge-item" data-aos="fade-right">
+                <div class="challenge-number">01</div>
+                <div class="challenge-content">
+                  <h3>Optimisation des performances</h3>
+                  <p>Mise en place de lazy loading, code splitting, cache Redis et compression GZIP pour 
+                  réduire les temps de chargement de 60%.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item" data-aos="fade-right" data-aos-delay="100">
+                <div class="challenge-number">02</div>
+                <div class="challenge-content">
+                  <h3>Sécurité renforcée</h3>
+                  <p>Implémentation de JWT avec refresh tokens, rate limiting, sanitization des inputs et 
+                  protection contre les attaques XSS/CSRF.</p>
+                </div>
+              </div>
+              
+              <div class="challenge-item" data-aos="fade-right" data-aos-delay="200">
+                <div class="challenge-number">03</div>
+                <div class="challenge-content">
+                  <h3>Scalabilité horizontale</h3>
+                  <p>Architecture microservices avec Docker, orchestration via Kubernetes et 
+                  load balancing pour supporter une croissance exponentielle.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar de détails techniques -->
+      <aside class="project-details" role="complementary">
+        
+        <!-- Section Stack technique -->
+        <section id="tech" class="details-section" aria-labelledby="tech-title">
+          <h2 id="tech-title" class="section-title">
+            <i class="fa-solid fa-code" aria-hidden="true"></i>
+            Stack technique
+          </h2>
+          
+          <div class="tech-stack-section">
+            <h3>Frontend</h3>
+            <div class="tech-stack">
+              <span class="tech-badge react">React 18</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Redux Toolkit</span>
+              <span class="tech-badge">React Query</span>
+              <span class="tech-badge">Tailwind CSS</span>
+              <span class="tech-badge">Framer Motion</span>
+            </div>
+            
+            <h3>Backend</h3>
+            <div class="tech-stack">
+              <span class="tech-badge node">Node.js</span>
+              <span class="tech-badge">Express.js</span>
+              <span class="tech-badge">MongoDB</span>
+              <span class="tech-badge">Redis</span>
+              <span class="tech-badge">Socket.io</span>
+              <span class="tech-badge">JWT</span>
+            </div>
+            
+            <h3>Services & APIs</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">Stripe API</span>
+              <span class="tech-badge">SendGrid</span>
+              <span class="tech-badge">Cloudinary</span>
+              <span class="tech-badge">Google Analytics</span>
+              <span class="tech-badge">Docker</span>
+              <span class="tech-badge">AWS</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Infrastructure -->
+        <section class="details-section" aria-labelledby="infra-title">
+          <h2 id="infra-title" class="section-title">
+            <i class="fa-solid fa-server" aria-hidden="true"></i>
+            Infrastructure
+          </h2>
+          
+          <ul class="infrastructure-list">
+            <li>
+              <i class="fa-solid fa-cloud" aria-hidden="true"></i>
+              <div>
+                <strong>Hébergement</strong>
+                <p>AWS EC2 (Auto Scaling)</p>
+              </div>
+            </li>
+            
+            <li>
+              <i class="fa-solid fa-database" aria-hidden="true"></i>
+              <div>
+                <strong>Base de données</strong>
+                <p>MongoDB Atlas + Redis Cache</p>
+              </div>
+            </li>
+            
+            <li>
+              <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+              <div>
+                <strong>CDN & Storage</strong>
+                <p>AWS S3 + CloudFront</p>
+              </div>
+            </li>
+            
+            <li>
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              <div>
+                <strong>Sécurité</strong>
+                <p>WAF, SSL/TLS, DDoS Protection</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section Métriques -->
+        <section class="details-section" aria-labelledby="metrics-title">
+          <h2 id="metrics-title" class="section-title">
+            <i class="fa-solid fa-chart-bar" aria-hidden="true"></i>
+            Métriques clés
+          </h2>
+          
+          <div class="metrics-grid">
+            <div class="metric-item">
+              <div class="metric-value">99.9%</div>
+              <div class="metric-label">Uptime</div>
+            </div>
+            
+            <div class="metric-item">
+              <div class="metric-value">&lt;2s</div>
+              <div class="metric-label">Load Time</div>
+            </div>
+            
+            <div class="metric-item">
+              <div class="metric-value">95%+</div>
+              <div class="metric-label">Satisfaction</div>
+            </div>
+            
+            <div class="metric-item">
+              <div class="metric-value">10k+</div>
+              <div class="metric-label">Users/mois</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Apprentissage -->
+        <section class="details-section" aria-labelledby="learnings-title">
+          <h2 id="learnings-title" class="section-title">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+            Ce que j'ai appris
+          </h2>
+          
+          <div class="learnings-list">
+            <div class="learning-item">
+              <i class="fa-solid fa-check" aria-hidden="true"></i>
+              <p>Architecture microservices à grande échelle</p>
+            </div>
+            
+            <div class="learning-item">
+              <i class="fa-solid fa-check" aria-hidden="true"></i>
+              <p>Optimisation des performances e-commerce</p>
+            </div>
+            
+            <div class="learning-item">
+              <i class="fa-solid fa-check" aria-hidden="true"></i>
+              <p>Intégration sécurisée de paiements</p>
+            </div>
+            
+            <div class="learning-item">
+              <i class="fa-solid fa-check" aria-hidden="true"></i>
+              <p>Monitoring et analytics avancés</p>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <!-- ===== ACTIONS ===== -->
+    <section class="project-actions" aria-labelledby="actions-title">
+      <h2 id="actions-title" class="sr-only">Actions disponibles pour ce projet</h2>
+      
+      <div class="actions-grid">
+        <a href="https://demo-ecommerce.aquilas-djedje.com" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="demo-btn action-btn"
+           aria-label="Voir la démo live du projet (ouvre dans un nouvel onglet)">
+          <i class="fa-solid fa-play" aria-hidden="true"></i>
+          <span>Voir la démo live</span>
+          <small>Site de démonstration fonctionnel</small>
+        </a>
+        
+        <a href="https://github.com/Master-Bronz12/ecommerce-platform" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="source-btn action-btn"
+           aria-label="Voir le code source sur GitHub (ouvre dans un nouvel onglet)">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          <span>Code source GitHub</span>
+          <small>Repository public</small>
+        </a>
+        
+        <a href="./CV/mon cv.pdf" 
+           download="Aquilas_DJEDJE_CV.pdf"
+           class="cv-btn action-btn"
+           aria-label="Télécharger mon CV au format PDF">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>Télécharger le CV</span>
+          <small>Voir plus de projets</small>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== PROJETS SIMILAIRES ===== -->
+    <section class="related-projects" aria-labelledby="related-title">
+      <h2 id="related-title" class="section-title">
+        <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+        Découvrez aussi ces projets
+      </h2>
+      
+      <div class="projects-grid">
+        <article class="related-project-card" data-aos="fade-up">
+          <a href="portfolio.html?project=taskmanager" class="project-link" aria-label="Voir le projet Gestionnaire de tâches">
+            <div class="project-image-container">
+              <img src="./IMAGES/ap g.jpg" 
+                   alt="Interface du gestionnaire de tâches avec tableau Kanban" 
+                   loading="lazy"
+                   width="400"
+                   height="250">
+              <div class="project-overlay">
+                <span class="view-project">Voir le projet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </div>
+            </div>
+            <div class="project-content">
+              <span class="project-tag">Productivité</span>
+              <h3>Task Manager Pro</h3>
+              <p>Application de gestion de projet avec équipes en temps réel</p>
+              <div class="project-tech">
+                <span>Vue.js</span>
+                <span>Firebase</span>
+                <span>PWA</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+        <article class="related-project-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="portfolio.html?project=api" class="project-link" aria-label="Voir le projet API REST sécurisée">
+            <div class="project-image-container">
+              <img src="./IMAGES/api.jpg" 
+                   alt="Documentation Swagger de l'API REST" 
+                   loading="lazy"
+                   width="400"
+                   height="250">
+              <div class="project-overlay">
+                <span class="view-project">Voir le projet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </div>
+            </div>
+            <div class="project-content">
+              <span class="project-tag">Backend</span>
+              <h3>API REST sécurisée</h3>
+              <p>Microservices avec authentification JWT et documentation Swagger</p>
+              <div class="project-tech">
+                <span>NestJS</span>
+                <span>PostgreSQL</span>
+                <span>Docker</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        
+        <article class="related-project-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="portfolio.html?project=3d" class="project-link" aria-label="Voir le projet Environnement 3D interactif">
+            <div class="project-image-container">
+              <img src="./IMAGES/3D.jpg" 
+                   alt="Rendu 3D d'un environnement virtuel créé avec Blender" 
+                   loading="lazy"
+                   width="400"
+                   height="250">
+              <div class="project-overlay">
+                <span class="view-project">Voir le projet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </div>
+            </div>
+            <div class="project-content">
+              <span class="project-tag">Design 3D</span>
+              <h3>Environnement 3D interactif</h3>
+              <p>Modélisation Blender et intégration WebGL avec Three.js</p>
+              <div class="project-tech">
+                <span>Blender</span>
+                <span>Three.js</span>
+                <span>WebGL</span>
+              </div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="portfolio-footer" role="contentinfo">
+      <div class="footer-content">
+        <p class="copyright">
+          &copy; <span id="current-year-portfolio">2024</span> Aquilas DJEDJE. 
+          <span class="highlight">Développeur FullStack & UI/UX Designer</span>
+        </p>
+        
+        <div class="footer-contact">
+          <a href="mailto:aquilasdjedje22@gmail.com" class="footer-link" aria-label="Envoyer un email">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            aquilasdjedje22@gmail.com
+          </a>
+          
+          <a href="tel:+2250702888506" class="footer-link" aria-label="Téléphoner">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            +225 07 02 88 85 06
+          </a>
+        </div>
+        
+        <div class="footer-links">
+          <a href="index.html#home" class="footer-link">Accueil</a>
+          <a href="index.html#skills" class="footer-link">Compétences</a>
+          <a href="index.html#portfolio" class="footer-link">Portfolio</a>
+          <a href="index.html#contact" class="footer-link">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="./JS/script-portfolio.js" defer></script>
+  <script src="./JS/script.js" defer></script>
+  
+  <script>
+    // Mise à jour de l'année dans le footer
+    document.addEventListener('DOMContentLoaded', function() {
+      const yearElement = document.getElementById('current-year-portfolio');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+      }
+      
+      // Ajout de la classe active à la sidebar en fonction de la section visible
+      const sections = document.querySelectorAll('.content-section');
+      const sidebarLinks = document.querySelectorAll('.portfolio-sidebar .icon:not(.back-home)');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            sidebarLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+      
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
+</body>
+</html>
